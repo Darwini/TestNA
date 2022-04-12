@@ -28,7 +28,8 @@ Si se generaron los seeders, verificar el archivo UserSeeder.php el cual genera 
 En caso de no querer ejecutar los seeders, la api cuenta con el proceso de registro de usuarios.
 
 Modelos:
-Los modelos estan establecidos en su debida carpeta, y con las relaciones ORM que conectan a unas tablas con otras, deppendiendo su cardinalidad.
+Los modelos estan establecidos en su debida carpeta, y con las relaciones ORM que conectan a unas tablas con otras, dependiendo su cardinalidad.
+dentro de estos existen ademas una funcion estatica la cual es llamada en el controlador, para una funcion en particular que devuelve un codigo correlativo.
 
 Vistas:
 Se dejaron las vistas predetermnadas de autenticación de Laravel pues el desarrollo se trata de backend
@@ -42,6 +43,8 @@ PanelAdmin/SuscriptoresController, aqui se encuentran las funciones para los usu
 BD:
 Se genero la base de datos en base a algunas consideraciones, basadas en el sistema de cobro por suscripción.
 
-La elaboracion y ejecucioón de la api se realizó con Postman.
+Consideraciones Finales:
+La elaboración y ejecución de la api se realizó con Postman.
+Los documentos del proyecto estan en la rama master.
 
 Documento Elaborado por Darwin Salinas, 12/04/2022 para NexoAbogados.
