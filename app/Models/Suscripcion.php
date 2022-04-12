@@ -33,7 +33,7 @@ class Suscripcion extends Model
     public function pagos()
     {
         // return $this->hasMany('Clase', 'nombre_clave_foranea', 'nombre_clave_primaria_local');
-        return $this->hasMany(Pago::class, 'suscripcion_id', 'id');
+        return $this->hasMany(Pago::class, 'id', 'suscripcion_id');
     }
 
     // Inverso de relación muchos a uno

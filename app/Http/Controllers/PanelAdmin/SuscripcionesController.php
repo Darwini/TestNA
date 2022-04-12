@@ -19,22 +19,27 @@ class SuscripcionesController extends Controller
 
     public function index(Request $request)
     {
-        $stat = !empty($request->status) ? $status : 'activas';
-        $validos = ['activas' => 1, 'inactivas' => 0];
+        // 
+    }
+
+    public function getSuscriptions($status)
+    {
+        $stat = ($status != 'activas' && $status != 'inactivas') ? 'activas' : $status;
+        $validos = ['activas' => [1, 2], 'inactivas' => [0]];
         
         $datos = [
-            'resp' => true,
-            'Suscripciones' => Suscripcion::where('status', $validos[$stat])->withTrashed()->get(),
+            'resp' => $validos[$stat],
+            'suscripciones' => Suscripcion::whereIn('status', $validos[$stat])->withTrashed()->get(),
         ];
         return response()->json($datos, 200);
     }
 
     public function show($id)
     {
-        $suscripcion = Suscripcion::firstOrFail($id);
+        $suscripcion = Suscripcion::findOrFail($id);
+
         $datos = [
             'Suscripcion' => $suscripcion,
-            'Pagos' => $suscripcion->pagos,
         ];
         return response()->json($datos, 200);
     }
